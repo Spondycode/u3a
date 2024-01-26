@@ -11,25 +11,25 @@
       <!--content wrapper -->
       <div>
         <!-- Navbar -->
+        <div class="flex h-16 justify-around items-center pt-4">
+          <img class="h-10 object-contain" src="images/u3a.png" alt="usa logo">
+          <h1 class="text-2xl">
+            <a href="/">U3A Responsive Website</a>
+          </h1>
+        </div>
         <nav class=" pt-4  ">
-          <div class="flex justify-around items-center ">
-            <img src="images/u3a.png" alt="">
-            <h1 class="text-2xl">
-              <a href="/">U3A Responsive Website</a>
-            </h1>
-          </div>
           <ul class="flex-col text-center gap-2 justify-between mt-4 sm:flex-row md:flex bg-blue-600 ">
             
-              <li class="p-3 text-xl text-yellow-300 hover:text-white border-b md:border-0 hover:bg-blue-700"><a href="/">Home</a></li>
-              <li class="p-3 text-xl text-yellow-300 hover:text-white border-b md:border-0 hover:bg-blue-700"><a href="/about">About Us</a>
+              <li class="p-3 md:ml-6 text-xl text-yellow-300 hover:text-white border-b md:border-0 hover:bg-blue-700"><a href="/index.html">Home</a></li>
+              <li class="p-3 text-xl text-yellow-300 hover:text-white border-b md:border-0 hover:bg-blue-700"><a href="/public/about.html">About Us</a>
               <li class="p-3 text-xl text-yellow-300 hover:text-white border-b md:border-0 hover:bg-blue-700"><a href="/contact">Contact</a></li>
-              <li class="p-3 text-xl text-yellow-300 hover:text-white border-b md:border-0 hover:bg-blue-700"><a href="/groups">Groups</a></li>
+              <li class="p-3 text-xl text-yellow-300 hover:text-white border-b md:border-0 hover:bg-blue-700"><a href="/public/group-details.html">Groups</a></li>
               <li class="p-3 text-xl text-yellow-300 hover:text-white border-b md:border-0 hover:bg-blue-700"><a href="/events">Events</a></li>
-              <li class="p-3 text-xl text-yellow-300 hover:text-white border-b md:border-0 hover:bg-blue-700"><a href="/info">Information</a></li>
+              <li class="p-3 md:mr-6 text-xl text-yellow-300 hover:text-white border-b md:border-0 hover:bg-blue-700"><a href="/info">Information</a></li>
           </ul>
           <div>
             <ul  class="flex justify-around gap-3 py-4 bg-slate-200">
-              <li><a class="bg-yellow-500 p-2 rounded-lg hover:bg-yellow-600 shadow-lg" href="#">Login</a></li>
+              <li><a class="bg-yellow-500 p-2 rounded-lg hover:bg-yellow-600 shadow-lg transition ease-in-out duration-500" href="#">Login</a></li>
               <li><a class="bg-yellow-500 p-2 rounded-lg hover:bg-yellow-600 shadow-lg" class="mr-4" href="#">Membership</a></li>
               <li><a class="bg-yellow-500 p-2 rounded-lg hover:bg-yellow-600 shadow-lg" class="mr-4" href="#">Signup</a></li>
             </ul>
@@ -43,10 +43,8 @@
       <!-- end of Nav -->
       <main>
         
-        <header class=" bg-blue-300 h-96">
-          <h1>U3A</h1>
-          <h2>University of the Third Age</h2>
-          <h3>Learn, Laugh, Live</h3>
+        <header class=" bg-sky-200 m-6 p-6 mx-auto rounded-xl sm:w-4/5">
+          <img class="mx-auto md:w-4/5 max-w-6xl rounded-xl" src="images/Image.gif" id="image" alt="">
         </header>
         <div><!-- Hero Section --></div>
         <div class="bg-slate-200 m-6 p-6 mx-auto rounded-xl sm:w-4/5">
@@ -78,7 +76,7 @@
         </div>
         <div>
           <!-- The AGM NOTICE -->
-          <img class=" mx-auto md:w-4/5 max-w-6xl rounded-xl" src="images/AGM 24.jpg" alt="" />
+          <img class="w-full mx-auto md:w-4/5 max-w-6xl rounded-xl" src="images/AGM 24.jpg" alt="" />
         </div>
         <div class="bg-sky-200 m-4 p-6 mx-auto rounded-xl sm:w-4/5 shadow-lg">
           <!-- Headline -->
@@ -118,5 +116,7 @@
         <li><a href="#">Privacy Policy</a></li>
       </ul>
     </footer>
+
+
   </body>
 </html>

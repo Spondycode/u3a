@@ -5,3 +5,8 @@
 .card {
   @apply bg-sky-200 rounded-lg shadow-lg relative overflow-hidden;
 }
+
+/* img {
+  width: 800px;
+  margin: 0 auto;
+} */
