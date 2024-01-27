@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
+    <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+  ></script>
     <title>Better U3A</title>
   </head>
   <body>
@@ -11,21 +15,44 @@
       <!--content wrapper -->
       <div>
         <!-- Navbar -->
-        <div class="flex h-16 justify-around items-center pt-4">
-          <a href="index.html"><img class="h-10 object-contain" src="images/u3a.png" alt="usa logo"></a>
-          <h1 class="text-2xl">
-            <a href="/">U3A Responsive Website</a>
-          </h1>
-        </div>
-        <nav class=" pt-4  ">
-          <ul class="flex-col text-center gap-2 justify-between mt-4 sm:flex-row md:flex bg-blue-600 ">
-              <li class="p-3 text-xl text-yellow-300 hover:text-white border-b md:border-0 hover:bg-blue-700"><a href="about.html">About Us</a>
-              <li class="p-3 text-xl text-yellow-300 hover:text-white border-b md:border-0 hover:bg-blue-700"><a href="contact.html">Contact</a></li>
-              <li class="p-3 text-xl text-yellow-300 hover:text-white border-b md:border-0 hover:bg-blue-700"><a href="group-details.html">Groups</a></li>
-              <li class="p-3 text-xl text-yellow-300 hover:text-white border-b md:border-0 hover:bg-blue-700"><a href="events.html">Events</a></li>
-              <li class="p-3 md:mr-6 text-xl text-yellow-300 hover:text-white border-b md:border-0 hover:bg-blue-700"><a href="info.html">Information</a></li>
-          </ul>
-          <div>
+        <header x-data="{ mobilenavOpen: false }"
+            class="md:flex items-center justify-between [&>*]:px-8 bg-blue-600 h-20 text-white sticky top-0 z-40">
+            <div class="flex items-center justify-between h-15">
+                <logo class="flex pt-4">
+                        <img class="h-12 " src="images/u3a.png" alt="U3A Logo">
+                        <span class="text-xl font-bold ml-2">U3A</span>
+                </logo>
+                <mobileicon class="md:hidden">
+                    <a @click="mobilenavOpen = !mobilenavOpen"
+                        class="h-12 w-12 flex items-center justify-center cursor-pointer hover:bg-gray-700 rounded-lg">
+                        <img x-show="!mobilenavOpen" class="w-6 h-6 select-none"
+                            src="https://img.icons8.com/small/64/ffffff/menu.png" />
+                        <img x-show="mobilenavOpen" x-cloak class="w-6 h-6 select-none"
+                            src="https://img.icons8.com/small/64/ffffff/delete-sign.png" />
+                    </a>
+                </mobileicon>
+            </div>
+            <nav x-show="mobilenavOpen" x-cloak
+                class="md:!block bg-blue-600 h-screen w-screen md:h-auto md:w-auto -mt-20 md:mt-0 absolute md:relative z-[-1]"
+                x-transition:enter="duration-300 ease-out" x-transition:enter-start="opacity-0 -translate-y-96"
+                x-transition:enter-end="opacity-100 translate-y-0">
+                <ul
+                    class="flex items-center navitems flex-col md:flex-row gap-8 md:gap-0 justify-center h-full -translate-y-10 md:translate-y-0">
+
+                    <li @click="mobilenavOpen = !mobilenavOpen" class="m-2 text-2xl"><a
+                            class="hover:text-yellow-300 hover:shadow-lg" href="group-details.html">Groups</a></li>
+                    <li @click="mobilenavOpen = !mobilenavOpen" class="m-2 text-2xl"><a
+                            class="hover:text-yellow-300 hover:shadow-lg" href="contact.html">Contact</a></li>
+                    <li @click="mobilenavOpen = !mobilenavOpen" class="m-2 text-2xl"><a
+                            class="hover:text-yellow-300 hover:shadow-lg" href="events.html">Events</a></li>
+                    <li @click="mobilenavOpen = !mobilenavOpen" class="m-2 text-2xl"><a
+                            class="hover:text-yellow-300 hover:shadow-lg" href="info.html">Information</a></li>
+                    <li @click="mobilenavOpen = !mobilenavOpen" class="m-2 text-2xl"><a
+                            class="hover:text-yellow-300 hover:shadow-lg" href="about.html">About</a></li>
+
+                </ul>
+            </nav>
+        </header>
             <ul  class="flex justify-around gap-3 py-4 bg-slate-200">
               <li><a class="bg-yellow-500 p-2 rounded-lg hover:bg-yellow-600 shadow-lg transition ease-in-out duration-500" href="#">Login</a></li>
               <li><a class="bg-yellow-500 p-2 rounded-lg hover:bg-yellow-600 shadow-lg" class="mr-4" href="#">Membership</a></li>
@@ -87,7 +114,7 @@
           </p>
           
             <p class="text-center mt-5">
-              <a class="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 shadow-lg" href="">View All News</a>
+              <a class="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 shadow-lg" href="#">View All News</a>
             </p>
           
         </div>

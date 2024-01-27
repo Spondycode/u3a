@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="styles.css">
     <title>List of Groups</title>
 </head>
@@ -11,41 +12,60 @@
 <body class="w-full">
 
     <div>
-        <!-- Navbar -->
-        <div class="flex h-16 justify-around items-center pt-4">
-            <a href="index.html"><img class="h-10 object-contain" src="images/u3a.png" alt="u3a logo"></a>
-            <h1 class="text-2xl">
-                <a href="/">U3A Responsive Website</a>
-            </h1>
-        </div>
-        <nav class=" pt-4  ">
-            <ul class="flex-col text-center gap-2 justify-between mt-4 sm:flex-row md:flex bg-blue-600 ">
+        <header x-data="{ mobilenavOpen: false }"
+            class="md:flex items-center justify-between [&>*]:px-8 bg-blue-600 h-20 text-white sticky top-0 z-40">
+            <div class="flex items-center justify-between h-15">
+                <logo>
+                    <a class="flex items-center gap-1 text-3xl" href="index.html">
+                        <img class="h-10" src="images/u3a.png" alt="">
+                        <span class="text-xl font-bold ml-2">U3A</span>
+                    </a>
+                </logo>
+                <mobileicon class="md:hidden">
+                    <a @click="mobilenavOpen = !mobilenavOpen"
+                        class="h-12 w-12 flex items-center justify-center cursor-pointer hover:bg-gray-700 rounded-lg">
+                        <img x-show="!mobilenavOpen" class="w-6 h-6 select-none"
+                            src="https://img.icons8.com/small/64/ffffff/menu.png" />
+                        <img x-show="mobilenavOpen" x-cloak class="w-6 h-6 select-none"
+                            src="https://img.icons8.com/small/64/ffffff/delete-sign.png" />
+                    </a>
+                </mobileicon>
+            </div>
+            <nav x-show="mobilenavOpen" x-cloak
+                class="md:!block bg-blue-600 h-screen w-screen md:h-auto md:w-auto -mt-20 md:mt-0 absolute md:relative z-[-1]"
+                x-transition:enter="duration-300 ease-out" x-transition:enter-start="opacity-0 -translate-y-96"
+                x-transition:enter-end="opacity-100 translate-y-0">
+                <ul
+                    class="flex items-center navitems flex-col md:flex-row gap-8 md:gap-0 justify-center h-full -translate-y-10 md:translate-y-0">
 
-                <li class="p-3 md:ml-6 text-xl text-yellow-300 hover:text-white border-b md:border-0 hover:bg-blue-700">
-                    <a href="index.html">Home</a></li>
-                <li class="p-3 text-xl text-yellow-300 hover:text-white border-b md:border-0 hover:bg-blue-700"><a
-                        href="about.html">About Us</a>
-                <li class="p-3 text-xl text-yellow-300 hover:text-white border-b md:border-0 hover:bg-blue-700"><a
-                        href="contact.html">Contact</a></li>
-                <li class="p-3 text-xl text-yellow-300 hover:text-white border-b md:border-0 hover:bg-blue-700"><a
-                        href="events.html">Events</a></li>
-                <li class="p-3 md:mr-6 text-xl text-yellow-300 hover:text-white border-b md:border-0 hover:bg-blue-700">
-                    <a href="info.html">Information</a></li>
-            </ul>
-            <div>
-                <ul class="flex justify-around gap-3 py-4 bg-slate-200">
-                    <li><a class="bg-yellow-500 p-2 rounded-lg hover:bg-yellow-600 shadow-lg transition ease-in-out duration-500"
-                            href="#">Login</a></li>
-                    <li><a class="bg-yellow-500 p-2 rounded-lg hover:bg-yellow-600 shadow-lg" class="mr-4"
-                            href="#">Membership</a></li>
-                    <li><a class="bg-yellow-500 p-2 rounded-lg hover:bg-yellow-600 shadow-lg" class="mr-4"
-                            href="#">Signup</a></li>
+                    <li @click="mobilenavOpen = !mobilenavOpen" class="m-2 text-2xl"><a
+                            class="hover:text-yellow-300 hover:shadow-lg" href="index.html">Home</a></li>
+                    <li @click="mobilenavOpen = !mobilenavOpen" class="m-2 text-2xl"><a
+                            class="hover:text-yellow-300 hover:shadow-lg" href="group-details.html">Groups</a></li>
+                    <li @click="mobilenavOpen = !mobilenavOpen" class="m-2 text-2xl"><a
+                            class="hover:text-yellow-300 hover:shadow-lg" href="contact.html">Contact</a></li>
+                    <li @click="mobilenavOpen = !mobilenavOpen" class="m-2 text-2xl"><a
+                            class="hover:text-yellow-300 hover:shadow-lg" href="events.html">Events</a></li>
+                    <li @click="mobilenavOpen = !mobilenavOpen" class="m-2 text-2xl"><a
+                            class="hover:text-yellow-300 hover:shadow-lg" href="info.html">Information</a></li>
+
                 </ul>
-            </div>
-            <div class="flex justify-center sm:justify-end gap-3">
+            </nav>
+        </header>
+        <div>
+            <ul class="flex justify-around gap-3 py-4 bg-slate-200">
+                <li><a class="bg-yellow-500 p-2 rounded-lg hover:bg-yellow-600 shadow-lg transition ease-in-out duration-500"
+                        href="#">Login</a></li>
+                <li><a class="bg-yellow-500 p-2 rounded-lg hover:bg-yellow-600 shadow-lg" class="mr-4"
+                        href="#">Membership</a></li>
+                <li><a class="bg-yellow-500 p-2 rounded-lg hover:bg-yellow-600 shadow-lg" class="mr-4"
+                        href="#">Signup</a></li>
+            </ul>
+        </div>
+        <div class="flex justify-center sm:justify-end gap-3">
 
 
-            </div>
+        </div>
         </nav>
     </div>
 
@@ -288,8 +308,8 @@
                 </tr>
             </tbody>
         </table>
-
-        <footer class="bg-sky-200 p-6">
+    </div>
+        <footer class="bg-gray-200 p-6 mt-4">
             <ul class="flex gap-6 justify-center">
                 <li><a href="#">Association Rules</a></li>
                 <li><a href="#">Inclusion Policy</a></li>
@@ -298,3 +318,4 @@
         </footer>
 
 </body>
+</html>
